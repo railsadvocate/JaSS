@@ -1,0 +1,23 @@
+/*
+ * The color off of which the color palette will be defined and of which
+ * components and widgets will be styles if $auto-theme is set to true
+ */
+$color-primary: #9C27B0;
+
+/*
+ * Specifies whether the framework should style certain components with
+ * predefined colors. If set to false, all background and foreground colors
+ * for those components / widgets will be set to `inherit`.
+*/
+$auto-theme: true;
+
+/*
+ * Specifies the maximum width that container elements and other framework
+ * elements will fill.
+ */
+$app-max-width: 1200px;
+
+/*
+ * Specifies the number of columns per row to be used in the grid framework
+ */
+$num-columns-in-row: 12;

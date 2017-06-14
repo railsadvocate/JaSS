@@ -1,0 +1,120 @@
+/*
+ * This file contains all the variables and mixins to create the typographic
+ * styles as listed in the material design specification here:
+ *
+ *    https://material.io/guidelines/style/typography.html
+ *
+ * The format for this file was largely inspired by Sergey Kupletsky on his
+ * pen here: https://codepen.io/zavoloklom/pen/IkaFL
+ */
+
+$roboto-light: 300;
+$roboto-regular: 400;
+$roboto-medium: 500;
+
+/* Typographic Scale */
+$font-size-display-4:                112;
+$font-size-display-3:                56;
+$font-size-display-2:                45;
+$font-size-display-1:                34;
+$font-size-headline:                 24;
+$font-size-title:                    20;
+$font-size-subheading-device:        16;
+$font-size-subheading-desktop:       15;
+$font-size-body-2-device:            14;
+$font-size-body-2-desktop:           13;
+$font-size-body-1-device:            14;
+$font-size-body-1-desktop:           13;
+$font-size-caption:                  12;
+$font-size-button:                   14;
+
+/* font weights for each sttyle */
+$font-weight-display-4:                $roboto-light;
+$font-weight-display-3:                $roboto-regular;
+$font-weight-display-2:                $roboto-regular;
+$font-weight-display-1:                $roboto-regular;
+$font-weight-headline:                 $roboto-regular;
+$font-weight-title:                    $roboto-medium;
+$font-weight-subheading-device:        $roboto-regular;
+$font-weight-subheading-desktop:       $roboto-regular;
+$font-weight-body-2-device:            $roboto-medium;
+$font-weight-body-2-desktop:           $roboto-medium;
+$font-weight-body-1-device:            $roboto-regular;
+$font-weight-body-1-desktop:           $roboto-regular;
+$font-weight-caption:                  $roboto-regular;
+$font-weight-button:                   $roboto-medium;
+
+/* line heights for each style */
+$line-height-display-4:              128;
+$line-height-display-3:              84;
+$line-height-display-2:              48;
+$line-height-display-1:              40;
+$line-height-headline:               32;
+$line-height-title:                  28;
+$line-height-subheading-device:      28;
+$line-height-subheading-desktop:     24;
+$line-height-body-2-device:          24;
+$line-height-body-2-desktop:         24;
+$line-height-body-1-device:          20;
+$line-height-body-1-desktop:         20;
+$line-height-caption:                20;
+$line-height-button:                 20;
+
+/* Tracking and Kerning for each style */
+$tracking-display-4:              -0.10;
+$tracking-display-3:              -0.05;
+$tracking-display-2:              0.0;
+$tracking-display-1:              0.0;
+$tracking-headline:               0.0;
+$tracking-title:                  0.05;
+$tracking-subheading-device:      0.10;
+$tracking-subheading-desktop:     0.10;
+$tracking-body-2-device:          0.10;
+$tracking-body-2-desktop:         0.10;
+$tracking-body-1-device:          0.10;
+$tracking-body-1-desktop:         0.10;
+$tracking-caption:                0.20;
+$tracking-button:                 0.10;
+
+/* Colors for each style */
+$color-display-4:              $gray-dark;
+$color-display-3:              $gray-dark;
+$color-display-2:              $gray-dark;
+$color-display-1:              $gray-dark;
+$color-headline:               $gray-darker;
+$color-title:                  $gray-darker;
+$color-subheading-device:      $gray-darker;
+$color-subheading-desktop:     $gray-darker;
+$color-body-2-device:          $gray-darker;
+$color-body-2-desktop:         $gray-darker;
+$color-body-1-device:          $gray-darker;
+$color-body-1-desktop:         $gray-darker;
+$color-caption:                $gray-dark;
+$color-button:                 $gray-darker;
+
+/* Margins for each style */
+%typographic-style-margin {
+  margin: 0 0 14px 0;
+  margin-bottom: (14 / 10) + 0rem;
+}
+
+@mixin font-size($fontSize: 14) {
+  font-size: $fontSize + 0px;
+  font-size: ($fontSize / 10) + 0rem;
+}
+
+@mixin line-height($leading: 14) {
+  line-height: $leading + 0px;
+  line-height: ($leading / 10) + 0rem;
+}
+
+@mixin tracking($tracking: 0) {
+  letter-spacing: $tracking + 0px;
+  letter-spacing: ($tracking / 10) + 0rem;
+}
+
+@mixin font($fontSize: 14, $leading: 14, $tracking: 0) {
+  @include font-size($fontSize);
+  @include line-height($leading);
+  @include tracking($tracking);
+}

@@ -1,0 +1,37 @@
+/*
+ * Receives a map that resembles the following:
+ *
+ *    @include offset((
+ *       breakpoint1: 1,
+ *       breakpoint2: 3
+ *    ));
+ *
+ * The above code will produce two breakpoints that specify how much offset
+ * should be applied to the containing column. The offset simply adds a
+ * left margin to the column.
+ *
+ * If only a single value is supplied to the mixin, the value is interpreted
+ * to the the number of columns to offset. The breakpoint will then be set
+ * to $phone. For example, the following sample:
+ *
+ *     @include offset(1);
+ *
+ * will produce:
+ *
+ *     @media screen and (min-width: 320px) {
+ *       margin-left: 8.3333%;
+ *     }
+*/
+@mixin offset($offsets) {
+  @if type-of($offsets) == 'map' {
+    @each $breakpoint, $offset in $offsets {
+      @include breakpoint($breakpoint) {
+        margin-left: percentage($offset / $num-columns-in-row);
+      }
+    }
+  } @else {
+    @include breakpoint($phone) {
+      margin-left: percentage($offsets / $num-columns-in-row);
+    }
+  }
+}

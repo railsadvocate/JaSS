@@ -1,0 +1,99 @@
+/* reset button styles */
+button {
+  border: none;
+  background-color: transparent;
+}
+
+@mixin btn-focus($bg-color: $gray) {
+  transition: background-color .25s;
+
+  &:hover {
+    @extend %large-depth;
+    background-color: darken($bg-color, 5%);
+  }
+
+  &:active {
+    background-color: darken($bg-color, 10%);
+  }
+}
+
+/*
+ * md-button (material design button) is the template used by
+ * all 3 of the material design buttons (raised, flat, fab). It
+ * defines basic styles that all button types inherit from.
+*/
+%md-button {
+  @include font-size(14);
+  cursor: pointer;
+  font-weight: $roboto-medium;
+  text-transform: uppercase;
+  line-height: 36px;
+  padding: 0 16px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 10px;
+  min-width: 88px;
+  border-radius: 2px;
+
+  &.btn-sm {
+    @include font(12, 29);
+  }
+
+  &.btn-lg {
+    @include font(16, 41);
+  }
+
+  &.disabled {
+    @extend %disabled;
+  }
+}
+
+/*
+ * All JaSS buttons must specify one of the following three
+ * classes: .btn, .btn-sm, or .btn-lg in order to have the
+ * ripple effect occur on button press.
+ *
+ * The following styles were taken from Jhey Tompkins in his post here:
+ *
+ * https://medium.com/@_jh3y/how-to-create-the-ripple-effect-from-google-material-design-c6f993e1d39
+ *
+ * If the color of the ink / ripple effect is desired to be changed, the
+ * following styles can be applied:
+ *
+ *    .my-button .ripple-color {
+ *      background-color: $whatever-color-you-want
+ *    }
+*/
+.btn, .btn-sm, .btn-lg {
+ position: relative;
+ overflow: hidden;
+
+  .ripple-container {
+    position: absolute;
+    top     : 0;
+    right   : 0;
+    bottom  : 0;
+    left    : 0;
+
+    span {
+      transform       : scale(0);
+      border-radius   : 100%;
+      position        : absolute;
+      opacity         : 0.75;
+      background-color: $gray-light;
+      animation       : ripple 1250ms;
+    }
+  }
+}
+
+@keyframes ripple {
+ to {
+   opacity  : 0;
+   transform: scale(2);
+ }
+}
+
+/* ########## END RIPPLE STYLES ########## */

@@ -1,0 +1,5 @@
+@mixin icon-styles {
+  i, .fa, .glyphicon {
+    @content;
+  }
+}

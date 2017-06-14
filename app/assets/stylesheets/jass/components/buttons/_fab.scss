@@ -1,0 +1,63 @@
+/*
+ * fab size-specific mixin where the size of the fab is $fab-dimen. This mixin
+ * sizes the fab as well as any icons inside the fab.
+ */
+@mixin fab-size-specific-styles($fab-dimen) {
+  height: $fab-dimen + 0px;
+  width: $fab-dimen + 0px;
+  border-radius: ($fab-dimen / 2) + 0px;
+  @include icon-styles {
+    line-height: $fab-dimen + 0px;
+    @include font-size(24);
+  }
+}
+
+/*
+ * Implements the material design floating action button as defined here:
+ *
+ *    https://material.io/guidelines/components/buttons-floating-action-button.html#
+ *
+ *
+ */
+.fab {
+  $bg-color: use-if-not-default($color-contrast, $gray);
+
+  @include fab-size-specific-styles($fab-sm-dimmensions);
+  @include btn-focus($bg-color);
+  @extend %medium-depth;
+  cursor: pointer;
+
+  background-color: $bg-color;
+  display: inline-block;
+  text-align: center;
+  margin: 0 16px;
+
+  @include icon-styles {
+    opacity: 1;
+    color: fg-color($bg-color);
+  }
+
+  &.btn-sm {
+    @include fab-size-specific-styles($fab-sm-dimmensions);
+  }
+
+  &.btn-lg {
+    @include fab-size-specific-styles($fab-dimmensions);
+  }
+
+  @include breakpoint(460px) {
+    @include fab-size-specific-styles($fab-dimmensions);
+
+    &.btn-sm {
+      @include fab-size-specific-styles($fab-sm-dimmensions);
+    }
+
+    &.btn-lg {
+      @include fab-size-specific-styles($fab-lg-dimmensions);
+    }
+  }
+
+  @include breakpoint($tablet) {
+    margin: 0 24px;
+  }
+}

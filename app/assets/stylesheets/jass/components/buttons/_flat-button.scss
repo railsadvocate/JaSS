@@ -1,0 +1,14 @@
+/*
+ * Implements Google's material design standard for raised buttons found
+ * here:
+ *
+ * https://material.io/guidelines/components/buttons.html#buttons-flat-buttons
+ */
+.flat-btn {
+  @extend %md-button;
+  color: $gray-darker;
+
+  &:hover {
+    background-color: $gray-lighter;
+  }
+}

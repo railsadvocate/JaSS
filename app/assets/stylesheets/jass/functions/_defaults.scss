@@ -1,0 +1,11 @@
+/*
+ * Returns $desired if $default theme is true and $default if $auto-theme
+ * is false. Should only be used by code in the framework.
+*/
+@function use-if-not-default($desired, $default) {
+  @if $auto-theme {
+    @return $desired;
+  } @else {
+    @return $default;
+  }
+}

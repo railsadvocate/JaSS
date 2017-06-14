@@ -1,0 +1,81 @@
+/*
+ * This map represents allowed keywords that can be used to set the width
+ * for each column in a row. These values are meant to be used in the
+ * width mixin specified below in this file. For example, the following
+ * sample specifies that a column is to take up a third of the available width
+ * in its parent:
+ *
+ *    @include width(third);
+ *
+ */
+$width-keywords: (
+  empty: 0%,
+  sixth: percentage(1/6),
+  fourth: 25%,
+  quarter: 25%,
+  third: percentage(1/3),
+  half: 50%,
+  two-thirds: percentage(2/3),
+  full: 100%
+);
+
+/*
+ * Receives a map that resembles the following:
+ *
+ *     @include width((
+ *       breakpoint1: half,
+ *       breakpoint2: third,
+ *       breakpoint3: fourth
+ *     ));
+ *
+ * Any key-value pair in the $width-keywords map will be accepted as a
+ * valid breakpoint. The mixin can also be invoked with the number of columns
+ * desired like so:
+ *
+ *    @include width((
+ *       breakpoint1: 6,
+ *       breakpoint2: 4,
+ *       breakpoint3: 3
+ *     ));
+ *
+ * Or with a combination:
+ *
+ *    @include width((
+ *      breakpoint1: half,
+ *      breakpoint2: third,
+ *      breakpoint3: 3
+ *    ));
+ *
+ * All three of the above examples are identicle and will produce media queries
+ * that break on the specified breakpoints. The value in the key-value pair
+ * specifies how large the containing column should be with relation to the
+ * parent.
+ *
+ * If only a single value is supplied, that value is interpreted to the be the
+ * column width which can be specified as a number or a keyword. The breakpoint
+ * is then set to $phone. For example, the following sample:
+ *
+ *     @include width(half);
+ *
+ * would compile to:
+ *
+ *     @media screen and (min-width: 320px) {
+ *       flex: 0 0 50%;
+ *     }
+ */
+@mixin width($breakpoints) {
+  @if type-of($breakpoints) != 'map' {
+    $breakpoints: ($phone: $breakpoints);
+  }
+
+  @each $breakpoint, $width-keyword in $breakpoints {
+    @include breakpoint($breakpoint) {
+      @if map-has-key($width-keywords, $width-keyword) {
+        flex: 0 0 map-get($width-keywords, $width-keyword);
+      } @else {
+        flex: 0 0 percentage($width-keyword / $num-columns-in-row);
+      }
+    }
+  }
+
+}

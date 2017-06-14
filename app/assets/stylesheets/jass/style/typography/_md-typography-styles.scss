@@ -1,0 +1,94 @@
+.display-4 {
+  @include font($font-size-display-4, $line-height-display-4, $tracking-display-4);
+  font-weight: $font-weight-display-4;
+  color: $color-display-4;
+  text-transform: inherit;
+}
+
+.display-3 {
+  @include font($font-size-display-3, $line-height-display-3, $tracking-display-3);
+  font-weight: $font-weight-display-3;
+  color: $color-display-3;
+  text-transform: inherit;
+}
+
+.display-2 {
+  @include font($font-size-display-2, $line-height-display-2, $tracking-display-2);
+  font-weight: $font-weight-display-2;
+  color: $color-display-2;
+  text-transform: inherit;
+}
+
+.display-1 {
+  @include font($font-size-display-1, $line-height-display-1, $tracking-display-1);
+  font-weight: $font-weight-display-1;
+  color: $color-display-1;
+  text-transform: inherit;
+}
+
+.headline {
+  @include font($font-size-headline, $line-height-headline, $tracking-headline);
+  font-weight: $font-weight-headline;
+  color: $color-headline;
+  text-transform: inherit;
+}
+
+.title {
+  @include font($font-size-title, $line-height-title, $tracking-title);
+  font-weight: $font-weight-title;
+  color: $color-title;
+  text-transform: inherit;
+}
+
+.subheading {
+  @include font($font-size-subheading-device, $line-height-subheading-device, $tracking-subheading-device);
+  font-weight: $font-weight-subheading-device;
+  color: $color-subheading-device;
+  text-transform: inherit;
+}
+
+.body-2 {
+  @include font($font-size-body-2-device, $line-height-body-2-device, $tracking-body-2-device);
+  font-weight: $font-weight-body-2-device;
+  color: $color-body-2-device;
+  text-transform: inherit;
+}
+
+.body-1 {
+  @include font($font-size-body-1-device, $line-height-body-1-device, $tracking-body-1-device);
+  font-weight: $font-weight-body-1-device;
+  color: $color-body-1-device;
+  text-transform: inherit;
+}
+
+.caption {
+  @include font($font-size-caption, $line-height-caption, $tracking-caption);
+  font-weight: $font-weight-caption;
+  color: $color-caption;
+  text-transform: inherit;
+}
+
+.button {
+  @include font($font-size-button, $line-height-button, $tracking-button);
+  font-weight: $font-weight-button;
+  color: $color-button;
+  text-transform: uppercase;
+}
+
+.display-4, .display-3, .display-2, .display-1, .headline, .title, .subheading, .body-2, .body-1, .caption, .button {
+  @extend %typographic-style-margin;
+}
+
+@include breakpoint($desktop) {
+  .subheading {
+    @include font($font-size-subheading-desktop, $line-height-subheading-desktop, $tracking-subheading-desktop);
+  }
+
+  .body-2 {
+    @include font($font-size-body-2-desktop, $line-height-body-2-desktop, $tracking-body-2-desktop);
+  }
+
+  .body-1 {
+    @include font($font-size-body-1-desktop, $line-height-body-1-desktop, $tracking-body-1-desktop);
+  }
+}

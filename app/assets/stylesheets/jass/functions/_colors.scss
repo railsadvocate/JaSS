@@ -1,0 +1,14 @@
+/*
+ * returns either $gray-darker or white depending on the color that is passed
+ * as an argument.
+ *
+ * The `$color` param is the background color that should be taken into account
+ * when choosing a foreground color.
+*/
+@function fg-color($color) {
+  @if lightness($color) > 50 {
+    @return $gray-darker;
+  } @else {
+    @return #FFF;
+  }
+}

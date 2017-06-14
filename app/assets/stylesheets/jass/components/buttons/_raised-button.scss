@@ -1,0 +1,40 @@
+/*
+ * Implements Google's material design standard for raised buttons found
+ * here:
+ *
+ * https://material.io/guidelines/components/buttons.html#buttons-raised-buttons
+*/
+
+.raised-btn {
+  $bg-color: use-if-not-default($color-primary, $gray);
+
+  @extend %md-button, %shallow-depth;
+  @include btn-focus($bg-color);
+
+  background-color: $bg-color;
+  color: fg-color($bg-color);
+
+  @include icon-styles {
+    font-size: 120%;
+    position: relative;
+    top: 1px;
+    color: fg-color($bg-color);
+    opacity: .87;
+  }
+
+  @include breakpoint($desktop) {
+    @include font(13, 32);
+
+    &.btn {
+      @include font(13, 32);
+    }
+
+    &.btn-sm {
+      @include font(11, 26);
+    }
+
+    &.btn-lg {
+      @include font(15, 38);
+    }
+  }
+}

@@ -1,0 +1,65 @@
+/*
+ * The default max width variable for the app. This variable is used
+ * to constrain the max-width of containers and other elements in the
+ * framework. It can safely be changed.
+ */
+$app-max-width: 1200px !default;
+
+/*
+ * This is the default number of columns in the grid. This variable can
+ * be safely changed to any other number and the framework will accomodate.
+ */
+$num-columns-in-row: 12 !default;
+
+/*
+ * The breakpoints that are used framework-wide. These breakpoints should not
+ * be altered.
+*/
+$phone:   320px !default;
+$tablet:  768px !default;
+$desktop: 1024px !default;
+
+/*
+ * Specifies whether the framework should style certain components with
+ * predefined colors. If set to false, all background and foreground colors
+ * for those components / widgets will be set to `inherit`.
+*/
+$auto-theme: true !default;
+
+/*
+ * These gray colors represent the colors specified in the material design
+ * spec for the various typographic styles.
+*/
+$gray-darker:            #212121;
+$gray-dark:              #757575;
+$gray:                   #bdbdbd;
+$gray-light:             #e0e0e0;
+$gray-lighter:           #f5f5f5;
+
+/*
+ * The default color for JaSS is purple, and therefore, the default color
+ * palette for JaSS apps will have the material purple color. The primary color
+ * can be changed in the config file and the entire color palette will be changed
+ * accordingly.
+ *
+ * The palette specifies 9 colors (the primary color and 8 various shades of
+ * that color) and 1 contrast color. The contrast color will be applied to
+ * various components as specified in the material design spec.
+*/
+$color-primary:     #9C27B0 !default;
+$color-primary-900: darken($color-primary, 30%);
+$color-primary-800: darken($color-primary, 22.5%);
+$color-primary-700: darken($color-primary, 15%);
+$color-primary-600: darken($color-primary, 7.5%);
+$color-primary-500: $color-primary;
+$color-primary-400: lighten($color-primary, 7.5%);
+$color-primary-300: lighten($color-primary, 15%);
+$color-primary-200: lighten($color-primary, 22.5%);
+$color-primary-100: lighten($color-primary, 30%);
+$color-contrast:    complement($color-primary);
+$color-accent:      complement($color-primary);
+
+/* button variables */
+$fab-sm-dimmensions: 40;
+$fab-dimmensions: 56;
+$fab-lg-dimmensions: 72;

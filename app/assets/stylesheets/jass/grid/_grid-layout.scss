@@ -1,0 +1,36 @@
+/*
+ * The crux of the grid framework is the concept of a content area. A
+ * content area is simply a container for any number of rows or columns. The
+ * content area itself acts as a flex-container while each item immediately
+ * descended from the content area is a row or column that acts as a flex item.
+ * Content areas can be safely nested to produce complex grid layouts.
+ *
+ * By default, a content area displays in a column format as a result of a
+ * mobile-first mindset. The default width when the layout switches from columns
+ * to rows is $tablet. When the content area mixin is invoked, it can supplied
+ * an optional parameter that specifies when the content area should display in
+ * a row format.
+*/
+%content-area-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  > h1, h2, h3, h4, h5, h6 {
+    flex-basis: 100%;
+  }
+}
+
+.content-area {
+  @extend %content-area-main;
+  @include breakpoint($tablet) {
+    flex-flow: row wrap;
+  }
+}
+
+@mixin content-area($break-to-row: $tablet) {
+  @extend %content-area-main;
+  @include breakpoint($break-to-row) {
+    flex-flow: row wrap;
+  }
+}

@@ -1,0 +1,18 @@
+/*
+ * A container is a wrapper that centers content and shortens the content
+ * to $default-width of the content's original width;
+*/
+@mixin container($default-width: 80%) {
+  width: $default-width;
+  max-width: $app-max-width;
+  margin: 16px auto;
+}
+
+/*
+ * This mixin is simply a helper utility that combines the content-area mixin
+ * with the container mixin so the user doesn't have to always specify both.
+*/
+@mixin content-area-container($break-to-row: $tablet) {
+  @include content-area($break-to-row);
+  @include container;
+}

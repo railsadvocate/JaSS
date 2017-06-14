@@ -1,0 +1,11 @@
+i, .fa, .glyphicon {
+  opacity: .38;
+
+  &:hover {
+    opacity: .54;
+  }
+
+  &:active {
+    opacity: .87;
+  }
+}

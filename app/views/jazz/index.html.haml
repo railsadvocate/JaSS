@@ -1,0 +1,49 @@
+%main.page
+  %h1.display-2 Welcome to JaSS
+
+  %section.grid-system
+    %h2.title Grid System
+    %p.body-1 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+  %section.buttons
+    %h2.title Buttons
+    .intro
+      %p.body-1
+        There are three types of buttons in the
+        %a{href: 'https://material.io/guidelines/components/buttons.html#'} Material Design Specification
+        %ul
+          %li Raised Button
+          %li Flat Button
+          %li Floating Action Button
+
+    .raised-buttons
+      %h3.subheading Raised Button
+      %button.btn.raised-btn
+        = fa_icon 'edit'
+        Press me!
+      %button.btn.raised-btn Press me!
+
+      %p.body-1
+        Raised buttons can be one of three default sizes
+        %ul
+          %li
+            Small
+            %span.caption= '<button class="raised-btn btn-sm">Press me!</button>'
+          %li
+            Medium (default)
+            %span.caption= '<button class="raised-btn btn">Press me!</button>'
+          %li
+            Large
+            %span.caption= '<button class="raised-btn btn-lg">Press me!</button>'
+
+    .flat-buttons
+      %h3.subheading Flat Button
+      .btn-lg.flat-btn Press me!
+      .btn.flat-btn Press me!
+      .btn-sm.flat-btn Press me!
+
+    .fabs
+      %h3.subheading Floating Action Buttons
+      .btn-sm.fab= fa_icon 'home'
+      .btn.fab= fa_icon 'pencil'
+      .btn-lg.fab= fa_icon 'book'

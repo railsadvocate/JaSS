@@ -1,0 +1,14 @@
+/*
+ * Strips the units off of a number. Shamelessly taken from css-tricks here:
+ *
+ *    https://css-tricks.com/snippets/sass/strip-unit-function/
+ *
+ * strip-unit(42px) --> 42
+ */
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
