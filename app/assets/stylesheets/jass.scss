@@ -28,6 +28,10 @@ main {
       padding-bottom: 10px;
     }
   }
+
+  .my-list {
+    @extend .list, .full-bleed-divider;
+  }
 }
 
 .buttons {

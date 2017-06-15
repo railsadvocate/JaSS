@@ -1,0 +1,25 @@
+.list {
+  list-style-type: none;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  margin-bottom: 100px;
+
+  &.full-bleed {
+    @extend .full-bleed-divider;
+  }
+
+  &.inset {
+    @extend .inset-divider;
+  }
+
+  ul, ol, li {
+    list-style-type: none;
+  }
+
+  li {
+    padding: 15px 0;
+    padding-left: 15px;
+  }
+}
